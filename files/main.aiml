@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <category>
+        <pattern>WHAT IS YOUR NAME</pattern>
+        <template>My name is Daryl</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE ONLY THING THAT WILL MAKE MY WIFE HAPPY</pattern>
+        <template>SCRATCHES!</template>
+    </category>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>huh?</template>
+    </category>
+    
+    <category>
+        <pattern>* AMERICA</pattern>
+        <template>FREEDOM</template>
+    </category>
+    
+    <category>
+        <pattern>TELL ME WHAT * IS</pattern>
+        <template><srai>WHAT IS <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>TELL ME MORE</pattern>
+        <that>MY NAME IS DARYL</that>
+        <template>there is not much more to say</template>
+    </category>
+    
+    <category>
+        <pattern>TELL ME MORE</pattern>
+        <that>SCRATCHES</that>
+        <template>IT'S NOT THAT HARD STUPID! GIVE HER SCRATCHES!!!!</template>
+    </category>
+
+    <category>
+        <pattern>PICK A NUMBER</pattern>
+        <template>
+            <random>
+                <li>One</li>
+                <li>Two</li>
+                <li>3.141592653589793236264</li>
+            </random>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template>Hello <think><set name = "username"><star /></set></think></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS MY NAME</pattern>
+        <template>Your name is <get name = "username" /></template>
+    </category>
+    
+    <category>
+        <pattern>IS * A FRUIT OR VEGETABLE</pattern>
+        <template>
+            <think><set name = "food"><star /></set></think>
+            <condition name = "food" value = "an orange">Oranges are a fruit</condition>
+            <condition name = "food" value = "a carrot">Carrots are a vegetable</condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>LETS TALK ABOUT FOOD</pattern>
+        <template>
+            <think><set name = "topic">food</set></think>
+            Yes! Let's talk about food
+        </template>
+    </category>
+    
+    <category>
+        <pattern>LETS TALK ABOUT WORK</pattern>
+        <template>
+            <think><set name = "topic">work</set></think>
+            Yes! Let's talk about work
+        </template>
+    </category>
+    
+    <topic name = "food">
+        <category>
+            <pattern>WHAT KINDS ARE THERE</pattern>
+            <template>Meat, fruits, vegetables, carbs, dessert and so much more</template>
+        </category>
+    </topic>
+    
+    <topic name = "work">
+        <category>
+            <pattern>WHAT KINDS ARE THERE</pattern>
+            <template>hard work, easy work, job work, home work. There are lots of kinds of work</template>
+        </category>
+    </topic>
+    
+    <category>
+        <pattern>WHAT DID YOU SAY</pattern>
+        <template><response index = "1" /></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT SHOULD I DO TODAY</pattern>
+        <template>
+            <button>
+                <text>PRESS ME</text>
+                <postback>what to do</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT TO DO</pattern>
+        <template>Give your wife a back rub</template>
+    </category>
+    
+    <category>
+        <pattern>CHICKEN NUGGET</pattern>
+        <template>
+            <button>
+                <text>A warm chicken nugget awaits</text>
+                <url>https://www.mcdonalds.com/us/en-us.html</url>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHERE SHOULD I EAT</pattern>
+        <template>
+            which sounds better
+            <reply>
+                <text>Cheese Burger</text>
+                <postback>burger</postback>
+            </reply>
+            <reply>
+                <text>Pizza</text>
+                <postback>pizza</postback>
+            </reply>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>pizza</pattern>
+        <template><image>https://rookie-chef.com/wp-content/uploads/2014/09/output_yevtko.gif</image>Little Caesers is a good choice<think><set name = "topic" >pizza</set></think></template>
+    </category>
+    
+    <category>
+        <pattern>burger</pattern>
+        <template><image>https://pspholdings.com/wp-content/uploads/2020/03/five-guys-logo.png</image>Five Guys is a good choice</template>
+    </category>
+    
+    <topic name = "pizza">
+        <category>
+            <pattern>HOW MUCH SHOULD I EAT</pattern>
+            <template>
+                <carousel>
+                    <card>
+                        <image>https://www.seriouseats.com/thmb/-_mziT2tl0F63I4kfji4S6bE-cA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__10__20181015-state-of-slice-delmar-clay-williams-2de043fa5a0d4475b6c567e4a974b13b.jpg</image>
+                        <title>One Slice</title>
+                        <subtitle>a little bit</subtitle>
+                        <button>
+                            <text>Just Right</text>
+                            <postback>one</postback>
+                        </button>
+                    </card> 
+                    
+                    <card>
+                        <image>https://www.shutterstock.com/image-photo/pepperoni-pizza-slice-on-white-260nw-372497833.jpg</image>
+                        <title>Two Slices</title>
+                        <subtitle>A good amount</subtitle>
+                        <button>
+                            <text>Just Right</text>
+                            <postback>two</postback>
+                        </button>
+                    </card>   
+                    
+                    <card>
+                        <image>https://thumbs.dreamstime.com/z/half-pizza-mexico-isolate-top-view-isolated-white-kapia-chili-peppers-177797483.jpg</image>
+                        <title>Half a Pizza</title>
+                        <subtitle>Really?!</subtitle>
+                        <button>
+                            <text>Just Right</text>
+                            <postback>half</postback>
+                        </button>
+                    </card>
+                    
+                    <card>
+                        <image>https://snrpizza.com/images/products/65cd986d3c446_1707972717.jpg</image>
+                        <title>One Pizza</title>
+                        <subtitle>That's for your family right</subtitle>
+                        <button>
+                            <text>Just Right</text>
+                            <postback>whole</postback>
+                        </button>
+                    </card>  
+                    
+                    <card>
+                        <image>https://s3.envato.com/files/488525478/2024-02-12_0027.jpg</image>
+                        <title>Ten Pizza's</title>
+                        <subtitle>:|</subtitle>
+                        <button>
+                            <text>Just Right</text>
+                            <postback>ten</postback>
+                        </button>
+                    </card>    
+                </carousel>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>one</pattern>
+            <template>Won't you still be hungry?</template>
+        </category>
+        
+        <category>
+            <pattern>two</pattern>
+            <template>Perfect amount</template>
+        </category>
+        
+        <category>
+            <pattern>half</pattern>
+            <template>Hungry are we?</template>
+        </category>
+        
+        <category>
+            <pattern>whole</pattern>
+            <template>ummmm... Won't you pop?</template>
+        </category>
+        
+        <category>
+            <pattern>ten</pattern>
+            <template>YOUR CRAZY!</template>
+        </category>    
+    </topic>
+    
+</aiml>
